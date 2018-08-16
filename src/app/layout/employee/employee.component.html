@@ -1,0 +1,152 @@
+<div [@routerTransition]>
+    <div class="container">
+
+        <form [formGroup]="employeeDetailsForm">
+            <!-- Basic Details -->
+            <div *ngIf="count == 1">
+                <h2 class="text-muted">Basic Details</h2>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 form-group group">
+                        <input type="text" class="form-control" formControlName="firstname" id="firstname" name="firstname" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>First Name</label>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 form-group group">
+                        <input type="text" class="form-control" formControlName="lastname" id="lastname" name="lastname" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 form-group group">
+                        <input type="text" class="form-control" formControlName="technology" name="technology" id="technology" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Technology</label>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 form-group group">
+                        <input type="text" class="form-control" formControlName="title" name="title" id="title" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Summary -->
+            <div *ngIf="count == 2">
+                <h2 class="text-muted">Exprience Summary</h2>
+                <div class="row">
+                    <div class="col-md-12 form-group group">
+                        <textarea name="summary" class="form-control" formControlName="summary" rows="3" id="summary" required></textarea>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="description">Summary</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Skill -->
+            <div *ngIf="count == 3">
+                <div class="row">
+                    <div class="col-sm-4 col-md-6 col-lg-6">
+                        <h2 class="text-muted">Technical Skills</h2>
+                    </div>
+                    <div class="col-sm-8 col-md-6 col-lg-6">
+                        <button type="button" class="pull-right btn btn-outline-dark" (click)="addNewTechSkill()">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            ADD NEW
+                        </button>
+                    </div>
+                </div>
+                <div formArrayName="techSkillList" *ngFor="let techSkill of employeeDetailsForm.controls.techSkillList['controls']; let i = index;">
+                    <div class="row card-1" [formGroupName]="i">
+                        <div class="col-md-1 removeRow" (click)="deleteRow(i, 'skill')">
+                            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-md-5 col-sm-12 form-group group">
+                            <input type="text" class="form-control" formControlName="skill" id="skill" name="skill" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Skill</label>
+                        </div>
+                        <div class="col-md-6 col-sm-12 form-group group">
+                            <input type="text" class="form-control" formControlName="Details" id="details" name="details" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Details</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div *ngIf="count == 4">
+                <div class="row">
+                    <div class="col-sm-4 col-md-6 col-lg-6">
+                        <h2 class="text-muted">Technical Skills</h2>
+                    </div>
+                    <div class="col-sm-8 col-md-6 col-lg-6">
+                        <button type="button" class="pull-right btn btn-outline-dark" (click)="addNewProject()">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            ADD NEW
+                        </button>
+                    </div>
+                </div>
+                <div formArrayName="projectList" *ngFor="let project of employeeDetailsForm.controls.projectList['controls']; let i = index;">
+                    <div class="row card-1" [formGroupName]="i">
+                        <div class="col-md-1">
+                            <div class="col-md-1 removeRow" (click)="deleteRow(i, 'project')">
+                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 form-group group">
+                                    <input type="text" class="form-control" formControlName="projectTitle" id="projectTitle" name="projectTitle" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Project</label>
+                                </div>
+
+                                <div class="col-md-6 col-sm-12 form-group group">
+                                    <input type="text" class="form-control" formControlName="role" id="role" name="role" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Roles and Responsibility</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 form-group group">
+                                    <input type="text" class="form-control" formControlName="tools" id="tools" name="tools" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Tool and Technology</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group group">
+                                    <textarea name="description" class="form-control" formControlName="description" rows="3" id="description" required></textarea>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label for="description">Description</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="col-sm-12 text-center">
+
+                <button type="button" [hidden]="count == 4" class="btn btn-outline-primary" (click)="incrementCount()">Next</button>&nbsp;&nbsp;
+                <button *ngIf="count == 4" type="button" class="btn btn-outline-primary" (click)="submitData()">Submit</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-danger" (click)="goBack()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
