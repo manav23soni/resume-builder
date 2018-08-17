@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { EmployeedRoutingModule } from './employee-routing.module';
-import { EmployeeComponent } from './employee.component';
+import { PreviewRoutingModule } from './preview-routing.module';
+import { PreviewComponent } from './preview.component';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { EmployeeService } from '../employee/employee.service';
 @NgModule({
@@ -12,12 +12,12 @@ import { EmployeeService } from '../employee/employee.service';
         CommonModule,
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
-        EmployeedRoutingModule,
+        PreviewRoutingModule,
         ReactiveFormsModule
     ],
     declarations: [
-        EmployeeComponent
+        PreviewComponent
     ],
     providers: [EmployeeService, DashboardService]
 })
-export class EmployeedModule {}
+export class PreviewModule { }

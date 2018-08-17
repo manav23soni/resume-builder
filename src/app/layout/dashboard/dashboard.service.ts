@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
-import { AppHttpService } from "../../service/app-http/app-http.service";
-import { Observable } from 'rxjs/Observable';
 import { ApisService } from '../../service/apiService.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
 @Injectable()
-export class EmployeeService {
+export class DashboardService {
     constructor(private apisService: ApisService) { }
 
-    createResume(data) {
+    getResume() {
         return new Promise((resolve, reject) => {
-            this.apisService.createResume(data)
+            this.apisService.getResume()
                 .subscribe((res: any) => {
                     return resolve(res);
                 }, err => {
@@ -22,9 +18,9 @@ export class EmployeeService {
         })
     }
 
-    updateResume(data) {
+    getResumeById(id) {
         return new Promise((resolve, reject) => {
-            this.apisService.updateResume(data)
+            this.apisService.getResumeById(id)
                 .subscribe((res: any) => {
                     return resolve(res);
                 }, err => {

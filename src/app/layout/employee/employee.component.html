@@ -1,6 +1,5 @@
 <div [@routerTransition]>
     <div class="container">
-
         <form [formGroup]="employeeDetailsForm">
             <!-- Basic Details -->
             <div *ngIf="count == 1">
@@ -8,6 +7,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12 form-group group">
                         <input type="text" class="form-control" formControlName="firstname" id="firstname" name="firstname" required>
+                        <span *ngIf="!employeeDetailsForm.controls.firstname.valid && employeeDetailsForm.controls.firstname.touched">Please Enter firstname.</span>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>First Name</label>
@@ -15,6 +15,7 @@
 
                     <div class="col-md-6 col-sm-12 form-group group">
                         <input type="text" class="form-control" formControlName="lastname" id="lastname" name="lastname" required>
+                        <span *ngIf="!employeeDetailsForm.controls.lastname.valid && employeeDetailsForm.controls.lastname.touched">Please Enter lastname.</span>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Last Name</label>
@@ -23,6 +24,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12 form-group group">
                         <input type="text" class="form-control" formControlName="technology" name="technology" id="technology" required>
+                        <span *ngIf="!employeeDetailsForm.controls.technology.valid && employeeDetailsForm.controls.technology.touched">Please Enter technology.</span>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>Technology</label>
@@ -30,6 +32,7 @@
 
                     <div class="col-md-6 col-sm-12 form-group group">
                         <input type="text" class="form-control" formControlName="title" name="title" id="title" required>
+                        <span *ngIf="!employeeDetailsForm.controls.title.valid && employeeDetailsForm.controls.title.touched">Please Enter title.</span>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="title">Title</label>
@@ -140,6 +143,7 @@
                     </div>
                 </div>
             </div>
+            
             <!-- Button -->
             <div class="col-sm-12 text-center">
 

@@ -152,3 +152,10 @@ input:focus~.highlight {
     font-size: 25px;
     cursor: pointer;
 }
+
+
+input.ng-invalid.ng-touched {
+    border-bottom: 2px solid red;
+    animation: shake 0.4s 1 linear;
+    /* animation-iteration-count: infinite; */
+  }

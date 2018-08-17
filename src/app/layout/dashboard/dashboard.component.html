@@ -25,18 +25,17 @@
                 <tbody>
                     <tr *ngFor="let resume of resumeList">
                         <td>{{ i + 1 }}</td>
-                        <td>{{resume.name}}</td>
-                        <td>{{resume.technology}}</td>
-                        <td>{{resume.role}}</td>
+                        <td>{{resume.firstname + ' ' + resume.lastname | titlecase}}</td>
+                        <td>{{resume.technology | titlecase}}</td>
+                        <td>{{resume.title | titlecase}}</td>
                         <td>
-                            <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-outline-dark">
+                            <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-outline-dark" [routerLink]="['/employee', resume._id]">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </button>&nbsp;&nbsp;
                             <button type="button" data-toggle="tooltip" title="Download PDF" class="btn btn-outline-dark">
                                 <i class="fa fa-download" aria-hidden="true"></i>
                             </button>&nbsp;&nbsp;
-                            <!-- [routerLink]="['/projects/details',kk._id]" -->
-                            <button type="button" data-toggle="tooltip" title="Resume Preview" class="btn btn-outline-dark">
+                            <button type="button" data-toggle="tooltip" title="Resume Preview" class="btn btn-outline-dark" [routerLink]="['/preview', resume._id]">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </button>
                         </td>
