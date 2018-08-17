@@ -7,11 +7,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { CommonService } from "./service/common.service";
-
+import { HttpModule } from '@angular/http';
+import { ApisService } from '../app/service/apiService.service'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
-
+import { AppHttpService } from './service/app-http/app-http.service'
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -29,6 +30,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        HttpModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -40,7 +42,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         AppRoutingModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard, CommonService],
+    providers: [AuthGuard, CommonService, ApisService, AppHttpService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
