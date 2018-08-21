@@ -1,0 +1,53 @@
+.img-logo {
+    height: 65px;
+}
+
+h3 {
+    color: #6286cd;
+    font-size: 22px;
+}
+
+h4 {
+    color: #5c81c2;
+    font-weight: 700;
+}
+
+.table th,
+.table td {
+    padding: 0.50rem;
+    vertical-align: top;
+    border: 2px solid #5c81c2;
+    font-size: 12pt;
+}
+
+th {
+    width: 23%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li:before {
+    content: '✓';
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.removeRow {
+    line-height: 51px;
+    color: #dc3545;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.removeRow i{
+    padding-left: 15px;
+}
+
+@media print {
+    #Header {
+        display: none;
+    }
+}

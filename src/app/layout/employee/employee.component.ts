@@ -92,7 +92,14 @@ export class EmployeeComponent implements OnInit {
         return;
       } else {
         if (this.isUpdate) {
-          let response = await this.employeeService.updateResume(this.employeeDetailsForm.value);
+          this.resumedata.projectList = this.employeeDetailsForm.value.projectList;
+          this.resumedata.techSkillList = this.employeeDetailsForm.value.techSkillList;
+          this.resumedata.summary = this.employeeDetailsForm.value.summary;
+          this.resumedata.title = this.employeeDetailsForm.value.title;
+          this.resumedata.technology = this.employeeDetailsForm.value.technology;
+          this.resumedata.firstname = this.employeeDetailsForm.value.firstname;
+          this.resumedata.lastname = this.employeeDetailsForm.value.lastname;
+          let response = await this.employeeService.updateResume(this.resumedata);
           this.commonService.popToast("success", "success", "Updated!");
           this.employeeDetailsForm.reset();
           this.count = 1;

@@ -11,14 +11,7 @@ const routes: Routes = [
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'employee', loadChildren: './employee/employee.module#EmployeedModule' },
             { path: 'employee/:id', loadChildren: './employee/employee.module#EmployeedModule' },
-            { path: 'preview/:id', loadChildren: './preview/preview.module#PreviewModule' },
-            { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-            { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
-            { path: 'forms', loadChildren: './form/form.module#FormModule' },
-            { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
-            { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
-            { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
-            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
+            { path: 'preview/:id', loadChildren: './preview/preview.module#PreviewModule' }
         ]
     }
 ];
@@ -27,4 +20,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule { }
